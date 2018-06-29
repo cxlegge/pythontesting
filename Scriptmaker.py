@@ -1,12 +1,14 @@
 # A way to create an easy-to-read script from downloaded YouTube subtitles.
-thing = open('caption_input.srt', 'r+')
-lines = thing.readlines()
-thing2 = open('videoscript.txt', 'w+')
-lines2 = thing2.readlines()
+import re
+start = open('caption_input.srt', 'r+')
+lines = start.readlines()
+end = open('videoscript.txt', 'w+')
+lines2 = end.readlines()
 for line in lines:
-  # Code below removes lines with colons and line less than 4 characters long, then removes newlines to create the end document.
-  if not ':' in line and len(line) > 4:
-    thing2.write(line.replace('\n', ' '))
+  ''' Code below removes lines with colons and line less than 4 characters long
+      then removes newlines to create the end document. '''
+  if not re.search(':\S', line) and len(line) > 4:
+    end.write(line.replace('\n', ' '))
     
-thing.close()
-thing2.close()
+start.close()
+end.close()
