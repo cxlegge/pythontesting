@@ -1,19 +1,13 @@
 #a python script for a daft game of rock, paper, scissors
 
-from random import randint
+from random import choice
 
 p = input("Choose rock (r), paper, (p) or scissors (s): ")
 
 options = {'r':'Rock', 'p':'Paper', 's':'Scissors'}
+moves=["Rock","Paper","Scissors"]
 
-c = randint(0,2)
-
-if c == 0:
-    c = 'Rock'
-elif c == 1:
-    c = 'Paper'
-else:
-    c = 'Scissors'
+c = choice(moves)
 
 print(options[p] + ' versus ' + c)
 
